@@ -1,17 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+// const div = (
+//     <div className='cards'>
+//         {card({title:'My Title',subTitle:'My sub title'})}
+//         {card({title:'My second',subTitle:'My super sub title'})}
+//     </div>
+// );
+
+const cars = [
+    {sn:'1234',model:'Civic',man:'Honda',year:2020}
+];
+const div = (
+    <div className='cards'>
+        <Card title='My Title' subTitle='My sub title'/>
+        <Card title='My Second' subTitle='My super subtitle'></Card>
+    </div>
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+function Card(props){
+    console.log(props);
+    console.log(props.title, props.subTitle);
+    return (
+        <div className='card'>
+            <h2>{props.title}</h2>
+            <h3>{props.subTitle}</h3>
+        </div>
+    );
+}
+
+
+ReactDOM.render(div,document.querySelector('#root'));
